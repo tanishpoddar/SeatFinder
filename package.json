@@ -1,0 +1,11 @@
+{
+  "name": "seatfinder-web-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "live-server src/html"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "qrcode": "^1.4.4"
+  }
+}

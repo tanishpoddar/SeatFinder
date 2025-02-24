@@ -1,0 +1,215 @@
+:root {
+    --primary: #3b82f6;
+    --available: #22c55e;
+    --waiting: #eab308;
+    --occupied: #ef4444;
+    --selected: #8b5cf6;
+    --bg-dark: #111827;
+    --bg-card: #1f2937;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-card);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-card);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    color: var(--primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 4px;
+}
+
+.legend-available { background-color: var(--available); }
+.legend-waiting { background-color: var(--waiting); }
+.legend-occupied { background-color: var(--occupied); }
+.legend-selected { background-color: var(--selected); }
+
+.seats-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.seat {
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.seat:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.seat.available path {
+    fill: var(--available);
+}
+
+.seat.waiting path {
+    fill: var(--waiting);
+}
+
+.seat.occupied path {
+    fill: var(--occupied);
+}
+
+.seat.selected path {
+    fill: var(--selected);
+}
+
+.seat-number {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-secondary);
+}
+
+.heart {
+    color: var(--occupied);
+    display: inline-block;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.booking-section {
+    display: none;
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-top: 2rem;
+    color: var(--text-primary);
+}
+
+.booking-section label {
+    margin-right: 0.5rem;
+}
+
+.booking-section input,
+.booking-section select {
+    color: var(--text-primary);
+    background-color: var(--bg-card);
+    border: 1px solid var(--text-secondary);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    width: calc(100% - 1rem);
+}
+
+.qr-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    z-index: 1000;
+    color: var(--text-primary);
+}
+
+.qr-popup img {
+    width: 200px;
+    height: 200px;
+}
+
+.qr-popup-close {
+    display: block;
+    text-align: right;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.qr-popup-details {
+    margin-bottom: 1rem;
+}
+
+.alert {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}

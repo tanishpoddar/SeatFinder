@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeatFinder.io</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/main.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">SeatFinder.io</h1>
+            <p class="tagline">library seating space solved</p>
+        </header>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color legend-available"></div>
+                <span>Available</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-waiting"></div>
+                <span>Waiting</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-occupied"></div>
+                <span>Occupied</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-selected"></div>
+                <span>Selected</span>
+            </div>
+        </div>
+
+        <div class="alert" id="alert-message"></div>
+
+        <div class="seats-container" id="seats-container">
+            <!-- Seats will be populated here by JavaScript -->
+        </div>
+
+        <div class="booking-section" id="booking-section">
+            <h2 class="title" style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;">Book Your Seat</h2>
+            <label for="start-time">From: </label>
+            <input type="time" id="start-time" name="start-time">
+            <label for="duration">Duration: </label>
+            <select id="duration" name="duration">
+                <option value="30">30 minutes</option>
+                <option value="60">1 hour</option>
+                <option value="90">1.5 hours</option>
+                <option value="120">2 hours</option>
+                <option value="150">2.5 hours</option>
+                <option value="180">3 hours</option>
+            </select>
+            <button id="generate-qr" class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Generate QR</button>
+        </div>
+
+        <div class="qr-popup" id="qr-popup">
+            <span class="qr-popup-close" id="qr-popup-close">x</span>
+            <div class="qr-popup-details" id="qr-popup-details"></div>
+            <div style="width: 200px; height: 200px; background: #f0f0f0;"></div>
+        </div>
+
+        <footer class="footer">
+            Made with <span class="heart">❤️</span> by Team LittiChokha
+        </footer>
+    </div>
+
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- QR Code Generator -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <!-- External JavaScript -->
+    <script src="/src/js/main.js"></script>
+</body>
+</html>
